@@ -4,48 +4,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Abhilash ❤️ Darshini</title>
+<title>Abhilash Sivva ❤️ Darshini Momula</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to bottom, #fff0f3, #ffe5ec);
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(to bottom, #1a0000, #330000);
+  color: #f8f1e7;
   text-align: center;
-  overflow-x: hidden;
 }
 
-/* ENTRY */
+/* ENTRY SCREEN */
 .overlay {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, #1a0000, #000);
+  background: radial-gradient(circle, #000, #1a0000);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
-  flex-direction: column;
-  color: white;
 }
 
 .open-btn {
-  padding: 18px 36px;
-  font-size: 22px;
-  background: gold;
+  padding: 18px 40px;
+  font-size: 20px;
+  background: linear-gradient(45deg, gold, #d4af37);
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0 0 25px gold;
-  animation: pulse 1.5s infinite;
+  font-weight: bold;
+  box-shadow: 0 0 25px rgba(212,175,55,0.7);
+  transition: 0.3s;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1);}
-  50% { transform: scale(1.1);}
-  100% { transform: scale(1);}
+.open-btn:hover {
+  transform: scale(1.1);
 }
 
 /* CONTENT */
@@ -53,6 +50,7 @@ body {
   opacity: 0;
   transform: scale(0.95);
   transition: 1.5s ease;
+  padding: 20px;
 }
 
 .container.visible {
@@ -62,52 +60,69 @@ body {
 
 h1 {
   font-family: 'Great Vibes', cursive;
-  font-size: 60px;
-  color: #c9184a;
+  font-size: 64px;
+  color: #d4af37;
+  margin: 10px 0;
+  text-shadow: 0 0 20px rgba(212,175,55,0.4);
 }
 
+h2 {
+  color: #f1dca7;
+  letter-spacing: 2px;
+}
+
+/* SECTIONS */
 .section {
-  margin: 50px 20px;
+  margin: 60px 0;
 }
 
 .card {
-  background: white;
-  padding: 25px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(212,175,55,0.3);
+  padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   margin: 20px;
+  backdrop-filter: blur(10px);
 }
 
 .highlight {
-  font-weight: bold;
   font-size: 22px;
-  color: #a4133c;
+  color: #ffd700;
+  font-weight: bold;
 }
 
 /* BUTTONS */
 .btn {
-  padding: 12px 24px;
+  padding: 12px 28px;
   border-radius: 30px;
   border: none;
-  background: #ff4d6d;
-  color: white;
+  background: linear-gradient(45deg, gold, #d4af37);
+  color: black;
   cursor: pointer;
   margin: 10px;
-  font-size: 16px;
+  font-weight: bold;
 }
 
 .btn:hover {
   transform: scale(1.1);
 }
 
+/* COUNTDOWN */
+#countdown {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #fff;
+}
+
 /* PETALS */
 .petal {
   position: fixed;
+  top: -10px;
   width: 10px;
   height: 10px;
-  background: pink;
+  background: #d4af37;
   border-radius: 50%;
-  top: -10px;
+  opacity: 0.6;
   animation: fall linear infinite;
 }
 
@@ -115,40 +130,12 @@ h1 {
   to { transform: translateY(110vh); }
 }
 
-/* GALLERY */
-.gallery img {
-  width: 90%;
-  max-width: 300px;
-  border-radius: 20px;
-  margin: 10px;
-}
-
-/* RSVP */
-input, textarea {
-  width: 80%;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
-
-/* RINGS */
-.rings {
-  font-size: 50px;
-  animation: spin 2s ease;
-}
-
-@keyframes spin {
-  from { transform: scale(0) rotate(0deg);}
-  to { transform: scale(1) rotate(360deg);}
-}
 </style>
 </head>
 
 <body>
 
 <div class="overlay" id="overlay">
-  <h2>You're Invited 💖</h2>
   <button class="open-btn" onclick="openInvite()">Open Invitation</button>
 </div>
 
@@ -159,10 +146,10 @@ input, textarea {
 <div class="container" id="content">
 
 <div class="section">
-  <div class="rings">💍💍</div>
-  <h1>Abhilash</h1>
+  <h2>Together with their families</h2>
+  <h1>Abhilash Sivva</h1>
   <h2>&</h2>
-  <h1>Darshini</h1>
+  <h1>Darshini Momula</h1>
 </div>
 
 <div class="section card">
@@ -179,20 +166,11 @@ input, textarea {
 </div>
 
 <div class="section">
-  <button class="btn" onclick="addToCalendar()">📅 Save the Date</button>
+  <button class="btn" onclick="addToCalendar()">Save the Date</button>
 </div>
 
-<div class="section gallery">
-  <h2>Our Moments 💕</h2>
-  <img src="https://via.placeholder.com/300">
-  <img src="https://via.placeholder.com/300">
-</div>
-
-<div class="section card">
-  <h2>RSVP 💌</h2>
-  <input type="text" placeholder="Your Name">
-  <textarea placeholder="Message"></textarea>
-  <button class="btn">Send</button>
+<div class="section">
+  <p>With love, we invite you to bless us ❤️</p>
 </div>
 
 </div>
@@ -208,11 +186,11 @@ function openInvite() {
 }
 
 function createPetals() {
-  for (let i = 0; i < 25; i++) {
+  for (let i = 0; i < 20; i++) {
     let p = document.createElement("div");
     p.className = "petal";
     p.style.left = Math.random()*100+"vw";
-    p.style.animationDuration = (4+Math.random()*5)+"s";
+    p.style.animationDuration = (5+Math.random()*5)+"s";
     document.body.appendChild(p);
   }
 }
@@ -226,7 +204,6 @@ function startCountdown() {
 
     if (diff <= 0) {
       document.getElementById("countdown").innerHTML = "🎉 It's Wedding Time!";
-      fireworks();
       return;
     }
 
@@ -244,11 +221,7 @@ function openMap() {
 }
 
 function addToCalendar() {
-  window.open("https://www.google.com/calendar/render?action=TEMPLATE&text=Abhilash+Wedding&dates=20260625T060000Z/20260625T090000Z");
-}
-
-function fireworks() {
-  alert("🎆 Wedding Time 🎆");
+  window.open("https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding&dates=20260625T060000Z/20260625T090000Z");
 }
 </script>
 
