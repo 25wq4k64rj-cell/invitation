@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation | Abhilash ❤️ Darshini</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(to bottom, #fff5f5, #fde2e4);
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* ENTRY SCREEN */
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #2c0b0e, #000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.open-btn {
+  padding: 16px 32px;
+  font-size: 20px;
+  background: gold;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* MAIN CONTENT */
+.container {
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+.visible {
+  opacity: 1;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 52px;
+  color: #8b0000;
+  margin: 10px 0;
+}
+
+h2 {
+  color: #444;
+}
+
+.section {
+  margin: 40px 0;
+  animation: fadeUp 1.5s ease;
+}
+
+.card {
+  background: white;
+  margin: 20px;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.highlight {
+  color: #b22222;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* COUNTDOWN */
+#countdown {
+  font-size: 22px;
+  color: #8b0000;
+  margin-top: 10px;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* PETALS */
+.petal {
+  position: fixed;
+  top: -10px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ENTRY -->
+<div class="overlay" id="overlay">
+  <button class="open-btn" onclick="openInvite()">💌 Open Invitation</button>
+</div>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
+</audio>
+
+<div class="container" id="content">
+
+  <div class="section">
+    <h2>Together with our families</h2>
+    <h2>We invite you to the wedding of</h2>
+  </div>
+
+  <div class="section">
+    <h1>Sivva Abhilash</h1>
+    <p>S/o Sivva Bhasker & Sivva Chandrakala</p>
+
+    <h2>&</h2>
+
+    <h1>Momula Darshini</h1>
+    <p>D/o Momula Ravi Kumar & Momula Aruna Devi</p>
+  </div>
+
+  <div class="section card">
+    <h2>Wedding Ceremony</h2>
+    <p class="highlight">Sunday</p>
+    <p class="highlight">11:30 AM</p>
+    <p class="highlight">2026</p>
+    <div id="countdown"></div>
+  </div>
+
+  <div class="section card">
+    <h2>Venue</h2>
+    <p class="highlight">
+      Vara Convention,<br>
+      Hyderabad
+    </p>
+  </div>
+
+  <div class="section">
+    <p>With love ❤️ we invite you to bless us</p>
+  </div>
+
+</div>
+
+<script>
+function openInvite() {
+  document.getElementById("overlay").style.display = "none";
+  document.getElementById("content").classList.add("visible");
+  document.getElementById("music").play();
+
+  createPetals();
+  startCountdown();
+}
+
+/* PETALS */
+function createPetals() {
+  for (let i = 0; i < 25; i++) {
+    let petal = document.createElement("div");
+    petal.className = "petal";
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.animationDuration = (4 + Math.random() * 5) + "s";
+    petal.style.background = ["#ffb6c1","#ffc0cb","#ff69b4"][Math.floor(Math.random()*3)];
+    document.body.appendChild(petal);
+  }
+}
+
+/* COUNTDOWN */
+function startCountdown() {
+  const weddingDate = new Date("April 26, 2026 11:30:00").getTime();
+
+  setInterval(function() {
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+    document.getElementById("countdown").innerHTML =
+      "⏳ " + d + " days " + h + " hrs " + m + " mins to go";
+  }, 1000);
+}
+</script>
+
+</body>
+</html>
