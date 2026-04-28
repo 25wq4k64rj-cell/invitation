@@ -56,20 +56,32 @@ body {
   opacity: 1;
 }
 
+/* NAMES */
 h1 {
   font-family: 'Great Vibes', cursive;
-  font-size: 56px;
+  font-size: 58px;
   color: #b76e79;
   margin: 10px 0;
 }
 
+.name span {
+  font-size: 70px;
+}
+
+/* TEXT */
 h2 {
   font-weight: 400;
   letter-spacing: 1px;
   color: #7a5c5c;
 }
 
-/* SECTION */
+.parents {
+  font-size: 15px;
+  color: #6b5555;
+  margin-top: 5px;
+}
+
+/* SECTIONS */
 .section {
   margin: 50px 0;
 }
@@ -79,25 +91,26 @@ h2 {
   background: white;
   padding: 25px;
   margin: 20px auto;
-  max-width: 400px;
+  max-width: 420px;
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
-/* TEXT */
-.parents {
-  font-size: 15px;
-  color: #6b5555;
-  margin-top: 5px;
-}
-
+/* HIGHLIGHT */
 .highlight {
   font-size: 20px;
   color: #b76e79;
   font-weight: 500;
 }
 
-/* BUTTONS */
+/* COUNTDOWN BLOCK */
+.countdown-box {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #7a5c5c;
+}
+
+/* BUTTON */
 .btn {
   padding: 10px 22px;
   border-radius: 25px;
@@ -113,19 +126,11 @@ h2 {
   background: #b76e79;
   color: white;
 }
-
-/* COUNTDOWN */
-#countdown {
-  margin-top: 10px;
-  font-size: 16px;
-  color: #7a5c5c;
-}
 </style>
 </head>
 
 <body>
 
-<!-- ENTRY -->
 <div class="overlay" id="overlay">
   <button class="open-btn" onclick="openInvite()">Open Invitation</button>
 </div>
@@ -136,39 +141,50 @@ h2 {
 
 <div class="container" id="content">
 
+<!-- INTRO TEXT -->
 <div class="section">
   <h2>Together with their families</h2>
+  <h2>request the honour of your presence</h2>
 
-  <h1>Abhilash Sivva</h1>
+  <h1 class="name"><span>A</span>bhilash Sivva</h1>
   <div class="parents">
     Son of Sivva Bhasker & Sivva Chandrakala
   </div>
 
   <h2>&</h2>
 
-  <h1>Darshini Momula</h1>
+  <h1 class="name"><span>D</span>arshini Momula</h1>
   <div class="parents">
     Daughter of Momula Ravi Kumar & Momula Aruna Devi
   </div>
 </div>
 
+<!-- CEREMONY -->
 <div class="section card">
   <h2>Wedding Ceremony</h2>
-  <p class="highlight">June 25, 2026</p>
-  <p class="highlight">11:30 AM</p>
-  <div id="countdown"></div>
+  <p class="highlight">Thursday, June 25, 2026</p>
+  <p class="highlight">at 11:30 in the morning</p>
 </div>
 
+<!-- COUNTDOWN -->
+<div class="section card">
+  <h2>Countdown to the Big Day</h2>
+  <div id="countdown" class="countdown-box"></div>
+</div>
+
+<!-- VENUE -->
 <div class="section card">
   <h2>Venue</h2>
   <p class="highlight">Vara Convention, Hyderabad</p>
   <button class="btn" onclick="openMap()">View Map</button>
 </div>
 
+<!-- CTA -->
 <div class="section">
   <button class="btn" onclick="calendar()">Save the Date</button>
 </div>
 
+<!-- FOOTER -->
 <div class="section">
   <p>With love, we invite you to celebrate this beautiful beginning with us ❤️</p>
 </div>
@@ -209,7 +225,7 @@ function openMap() {
 }
 
 function calendar() {
-  window.open("https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding&dates=20260625T060000Z/20260625T090000Z");
+  window.open("https://www.google.com/calendar/render?action=TEMPLATE&text=Abhilash+Wedding&dates=20260625T060000Z/20260625T090000Z");
 }
 </script>
 
